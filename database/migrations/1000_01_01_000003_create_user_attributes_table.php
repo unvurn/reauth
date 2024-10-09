@@ -13,7 +13,7 @@ return new class() extends Migration
     {
         Schema::create('user_attributes', function (Blueprint $table) {
             $table->id();
-            $table->morphs('user');
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('key');
             $table->string('value');
             $table->unique(['user_id', 'key']);

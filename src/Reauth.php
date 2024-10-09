@@ -10,6 +10,11 @@ use Unvurn\Reauth\Models\UserOpenIdConnection;
 
 class Reauth
 {
+    public static function userModel(): string
+    {
+        return config('reauth.user_model');
+    }
+
     public static function accessTokenModel(): string
     {
         return config('reauth.access_token_model', AccessToken::class);

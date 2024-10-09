@@ -5,16 +5,16 @@ declare(strict_types=1);
 namespace Unvurn\Reauth;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * @method morphMany(string $class, string $string)
+ * @method hasMany(string $class, string $string)
  */
 trait HasOpenIdConnections
 {
-    public function connections(): MorphMany
+    public function connections(): HasMany
     {
-        return $this->morphMany(Reauth::openIdConnectionModel(), 'user');
+        return $this->hasMany(Reauth::openIdConnectionModel(), 'user_id');
     }
 
     public function createOpenIdConnection(string $issuer, string $subject): Model

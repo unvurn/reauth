@@ -13,7 +13,7 @@ return new class() extends Migration
     {
         Schema::create('user_open_id_connections', function (Blueprint $table) {
             $table->id();
-            $table->morphs('user');
+            $table->unsignedBigInteger('user_id')->index();
             $table->string('issuer');
             $table->string('subject');
             $table->unique(['issuer', 'subject']);

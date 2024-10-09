@@ -5,18 +5,18 @@ declare(strict_types=1);
 namespace Unvurn\Reauth;
 
 use DateTimeInterface;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
 use Unvurn\Reauth\Models\AccessToken;
 
 /**
- * @method morphMany(string $accessTokenModel, string $string)
+ * @method hasMany(string $accessTokenModel, string $string)
  */
 trait HasAccessTokens
 {
-    public function tokens(): MorphMany
+    public function tokens(): HasMany
     {
-        return $this->morphMany(Reauth::accessTokenModel(), 'user');
+        return $this->hasMany(Reauth::accessTokenModel(), 'user_id');
     }
 
     public function tokenCan(string $ability): bool

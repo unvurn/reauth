@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Unvurn\Reauth\Models;
 
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Foundation\Auth\User;
 
 /**
@@ -12,5 +12,5 @@ use Illuminate\Foundation\Auth\User;
  */
 interface UserAttributeInterface
 {
-    public function user(): MorphTo;
+    public function user(): BelongsTo;
 }
